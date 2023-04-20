@@ -7,6 +7,9 @@
   "bin": {
     "dialecli": "./bin/run.cjs"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/rognierbenoit/cli",
   "license": "MIT",
   "main": "dist/index.js",
