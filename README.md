@@ -1,7 +1,9 @@
-oclif-hello-world
+Dialectik CLI
 =================
 
-oclif example Hello World CLI
+Dialectik command line interpreter to:
+* compile markdown source
+* start the dev server
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/oclif-hello-world.svg)](https://npmjs.org/package/oclif-hello-world)
@@ -138,7 +140,7 @@ ALIASES
   $ dialecli plugins add
 
 EXAMPLES
-  $ dialecli plugins:install myplugin 
+  $ dialecli plugins:install myplugin
 
   $ dialecli plugins:install https://github.com/someuser/someplugin
 
@@ -201,7 +203,7 @@ ALIASES
   $ dialecli plugins add
 
 EXAMPLES
-  $ dialecli plugins:install myplugin 
+  $ dialecli plugins:install myplugin
 
   $ dialecli plugins:install https://github.com/someuser/someplugin
 
