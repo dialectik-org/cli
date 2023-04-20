@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "Dialectik CLI",
   "author": "benoit.rognier@edukera.com",
+  "type": "module",
   "bin": {
-    "dialecli": "./bin/run"
+    "dialecli": "./bin/run.cjs"
   },
   "homepage": "https://github.com/rognierbenoit/cli",
   "license": "MIT",
@@ -22,6 +23,7 @@
     "@oclif/plugin-plugins": "^2.4.4"
   },
   "devDependencies": {
+    "@dialectik/compiler": "^0.0.1",
     "@oclif/test": "^2.3.14",
     "@types/chai": "^4",
     "@types/mocha": "^9.0.0",
