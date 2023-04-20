@@ -16,79 +16,64 @@ oclif example Hello World CLI
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g cli
-$ dialectik-cli COMMAND
+$ npm install -g @dialectik/cli
+$ dialecli COMMAND
 running command...
-$ dialectik-cli (--version)
-cli/0.0.0 darwin-arm64 node-v18.12.1
-$ dialectik-cli --help [COMMAND]
+$ dialecli (--version)
+@dialectik/cli/0.0.1 darwin-arm64 node-v18.12.1
+$ dialecli --help [COMMAND]
 USAGE
-  $ dialectik-cli COMMAND
+  $ dialecli COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`dialectik-cli hello PERSON`](#dialectik-cli-hello-person)
-* [`dialectik-cli hello world`](#dialectik-cli-hello-world)
-* [`dialectik-cli help [COMMANDS]`](#dialectik-cli-help-commands)
-* [`dialectik-cli plugins`](#dialectik-cli-plugins)
-* [`dialectik-cli plugins:install PLUGIN...`](#dialectik-cli-pluginsinstall-plugin)
-* [`dialectik-cli plugins:inspect PLUGIN...`](#dialectik-cli-pluginsinspect-plugin)
-* [`dialectik-cli plugins:install PLUGIN...`](#dialectik-cli-pluginsinstall-plugin-1)
-* [`dialectik-cli plugins:link PLUGIN`](#dialectik-cli-pluginslink-plugin)
-* [`dialectik-cli plugins:uninstall PLUGIN...`](#dialectik-cli-pluginsuninstall-plugin)
-* [`dialectik-cli plugins:uninstall PLUGIN...`](#dialectik-cli-pluginsuninstall-plugin-1)
-* [`dialectik-cli plugins:uninstall PLUGIN...`](#dialectik-cli-pluginsuninstall-plugin-2)
-* [`dialectik-cli plugins update`](#dialectik-cli-plugins-update)
+* [`dialecli compile SOURCE`](#dialecli-compile-source)
+* [`dialecli help [COMMANDS]`](#dialecli-help-commands)
+* [`dialecli plugins`](#dialecli-plugins)
+* [`dialecli plugins:install PLUGIN...`](#dialecli-pluginsinstall-plugin)
+* [`dialecli plugins:inspect PLUGIN...`](#dialecli-pluginsinspect-plugin)
+* [`dialecli plugins:install PLUGIN...`](#dialecli-pluginsinstall-plugin-1)
+* [`dialecli plugins:link PLUGIN`](#dialecli-pluginslink-plugin)
+* [`dialecli plugins:uninstall PLUGIN...`](#dialecli-pluginsuninstall-plugin)
+* [`dialecli plugins:uninstall PLUGIN...`](#dialecli-pluginsuninstall-plugin-1)
+* [`dialecli plugins:uninstall PLUGIN...`](#dialecli-pluginsuninstall-plugin-2)
+* [`dialecli plugins update`](#dialecli-plugins-update)
 
-## `dialectik-cli hello PERSON`
+## `dialecli compile SOURCE`
 
-Say hello
+Compile Markdown (.md) source
 
 ```
 USAGE
-  $ dialectik-cli hello PERSON -f <value>
+  $ dialecli compile SOURCE [-i <value>] [-s <value>] [-c] [-j]
 
 ARGUMENTS
-  PERSON  Person to say hello to
+  SOURCE  Markdown source to compile
 
 FLAGS
-  -f, --from=<value>  (required) Who is saying hello
+  -c, --inlinestyle    Inline style (see style flag)
+  -i, --id=<value>     Source identifier
+  -j, --inlinejs       Inline js
+  -s, --style=<value>  CSS style source
 
 DESCRIPTION
-  Say hello
+  Compile Markdown (.md) source
 
 EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  $ dialecli compile ./hello/hello.md --id Hello
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/rognierbenoit/cli/blob/v0.0.0/dist/commands/hello/index.ts)_
+_See code: [dist/commands/compile/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.1/dist/commands/compile/index.ts)_
 
-## `dialectik-cli hello world`
+## `dialecli help [COMMANDS]`
 
-Say hello world
+Display help for dialecli.
 
 ```
 USAGE
-  $ dialectik-cli hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ dialectik-cli hello world
-  hello world! (./src/commands/hello/world.ts)
-```
-
-## `dialectik-cli help [COMMANDS]`
-
-Display help for dialectik-cli.
-
-```
-USAGE
-  $ dialectik-cli help [COMMANDS] [-n]
+  $ dialecli help [COMMANDS] [-n]
 
 ARGUMENTS
   COMMANDS  Command to show help for.
@@ -97,18 +82,18 @@ FLAGS
   -n, --nested-commands  Include all nested commands in the output.
 
 DESCRIPTION
-  Display help for dialectik-cli.
+  Display help for dialecli.
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.2.9/src/commands/help.ts)_
 
-## `dialectik-cli plugins`
+## `dialecli plugins`
 
 List installed plugins.
 
 ```
 USAGE
-  $ dialectik-cli plugins [--core]
+  $ dialecli plugins [--core]
 
 FLAGS
   --core  Show core plugins.
@@ -117,18 +102,18 @@ DESCRIPTION
   List installed plugins.
 
 EXAMPLES
-  $ dialectik-cli plugins
+  $ dialecli plugins
 ```
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.4.4/src/commands/plugins/index.ts)_
 
-## `dialectik-cli plugins:install PLUGIN...`
+## `dialecli plugins:install PLUGIN...`
 
 Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ dialectik-cli plugins:install PLUGIN...
+  $ dialecli plugins:install PLUGIN...
 
 ARGUMENTS
   PLUGIN  Plugin to install.
@@ -150,23 +135,23 @@ DESCRIPTION
 
 
 ALIASES
-  $ dialectik-cli plugins add
+  $ dialecli plugins add
 
 EXAMPLES
-  $ dialectik-cli plugins:install myplugin 
+  $ dialecli plugins:install myplugin 
 
-  $ dialectik-cli plugins:install https://github.com/someuser/someplugin
+  $ dialecli plugins:install https://github.com/someuser/someplugin
 
-  $ dialectik-cli plugins:install someuser/someplugin
+  $ dialecli plugins:install someuser/someplugin
 ```
 
-## `dialectik-cli plugins:inspect PLUGIN...`
+## `dialecli plugins:inspect PLUGIN...`
 
 Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ dialectik-cli plugins:inspect PLUGIN...
+  $ dialecli plugins:inspect PLUGIN...
 
 ARGUMENTS
   PLUGIN  [default: .] Plugin to inspect.
@@ -182,16 +167,16 @@ DESCRIPTION
   Displays installation properties of a plugin.
 
 EXAMPLES
-  $ dialectik-cli plugins:inspect myplugin
+  $ dialecli plugins:inspect myplugin
 ```
 
-## `dialectik-cli plugins:install PLUGIN...`
+## `dialecli plugins:install PLUGIN...`
 
 Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ dialectik-cli plugins:install PLUGIN...
+  $ dialecli plugins:install PLUGIN...
 
 ARGUMENTS
   PLUGIN  Plugin to install.
@@ -213,23 +198,23 @@ DESCRIPTION
 
 
 ALIASES
-  $ dialectik-cli plugins add
+  $ dialecli plugins add
 
 EXAMPLES
-  $ dialectik-cli plugins:install myplugin 
+  $ dialecli plugins:install myplugin 
 
-  $ dialectik-cli plugins:install https://github.com/someuser/someplugin
+  $ dialecli plugins:install https://github.com/someuser/someplugin
 
-  $ dialectik-cli plugins:install someuser/someplugin
+  $ dialecli plugins:install someuser/someplugin
 ```
 
-## `dialectik-cli plugins:link PLUGIN`
+## `dialecli plugins:link PLUGIN`
 
 Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ dialectik-cli plugins:link PLUGIN
+  $ dialecli plugins:link PLUGIN
 
 ARGUMENTS
   PATH  [default: .] path to plugin
@@ -247,16 +232,16 @@ DESCRIPTION
 
 
 EXAMPLES
-  $ dialectik-cli plugins:link myplugin
+  $ dialecli plugins:link myplugin
 ```
 
-## `dialectik-cli plugins:uninstall PLUGIN...`
+## `dialecli plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ dialectik-cli plugins:uninstall PLUGIN...
+  $ dialecli plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -269,17 +254,17 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ dialectik-cli plugins unlink
-  $ dialectik-cli plugins remove
+  $ dialecli plugins unlink
+  $ dialecli plugins remove
 ```
 
-## `dialectik-cli plugins:uninstall PLUGIN...`
+## `dialecli plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ dialectik-cli plugins:uninstall PLUGIN...
+  $ dialecli plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -292,17 +277,17 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ dialectik-cli plugins unlink
-  $ dialectik-cli plugins remove
+  $ dialecli plugins unlink
+  $ dialecli plugins remove
 ```
 
-## `dialectik-cli plugins:uninstall PLUGIN...`
+## `dialecli plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ dialectik-cli plugins:uninstall PLUGIN...
+  $ dialecli plugins:uninstall PLUGIN...
 
 ARGUMENTS
   PLUGIN  plugin to uninstall
@@ -315,17 +300,17 @@ DESCRIPTION
   Removes a plugin from the CLI.
 
 ALIASES
-  $ dialectik-cli plugins unlink
-  $ dialectik-cli plugins remove
+  $ dialecli plugins unlink
+  $ dialecli plugins remove
 ```
 
-## `dialectik-cli plugins update`
+## `dialecli plugins update`
 
 Update installed plugins.
 
 ```
 USAGE
-  $ dialectik-cli plugins update [-h] [-v]
+  $ dialecli plugins update [-h] [-v]
 
 FLAGS
   -h, --help     Show CLI help.
