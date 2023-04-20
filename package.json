@@ -10,7 +10,7 @@
   "homepage": "https://github.com/rognierbenoit/cli",
   "license": "MIT",
   "main": "dist/index.js",
-  "repository": "rognierbenoit/cli",
+  "repository": "dialectik-org/cli",
   "files": [
     "/bin",
     "/dist",
@@ -40,7 +40,7 @@
     "typescript": "^4.9.5"
   },
   "oclif": {
-    "bin": "dialectik-cli",
+    "bin": "dialecli",
     "dirname": "dialectik-cli",
     "commands": "./dist/commands",
     "plugins": [
@@ -49,8 +49,8 @@
     ],
     "topicSeparator": " ",
     "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
+      "compile": {
+        "description": "Compile Markdown (*.md) source to html"
       }
     }
   },
