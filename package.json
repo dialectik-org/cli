@@ -54,6 +54,9 @@
     "topics": {
       "compile": {
         "description": "Compile Markdown (*.md) source to html"
+      },
+      "dev": {
+        "description": "Starts Development Server"
       }
     }
   },

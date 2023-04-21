@@ -32,6 +32,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`dialecli compile SOURCE`](#dialecli-compile-source)
+* [`dialecli dev SOURCE`](#dialecli-dev-source)
 * [`dialecli help [COMMANDS]`](#dialecli-help-commands)
 * [`dialecli plugins`](#dialecli-plugins)
 * [`dialecli plugins:install PLUGIN...`](#dialecli-pluginsinstall-plugin)
@@ -68,6 +69,30 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/compile/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.1/dist/commands/compile/index.ts)_
+
+## `dialecli dev SOURCE`
+
+Starts Dev Server
+
+```
+USAGE
+  $ dialecli dev SOURCE [-i <value>] [-s <value>]
+
+ARGUMENTS
+  SOURCE  Markdown source to compile
+
+FLAGS
+  -i, --id=<value>     Source identifier
+  -s, --style=<value>  CSS style source
+
+DESCRIPTION
+  Starts Dev Server
+
+EXAMPLES
+  $ dialectik dev ./hello/hello.md --id Hello
+```
+
+_See code: [dist/commands/dev/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.1/dist/commands/dev/index.ts)_
 
 ## `dialecli help [COMMANDS]`
 
@@ -107,7 +132,7 @@ EXAMPLES
   $ dialecli plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.4.4/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.4.6/src/commands/plugins/index.ts)_
 
 ## `dialecli plugins:install PLUGIN...`
 
@@ -140,7 +165,7 @@ ALIASES
   $ dialecli plugins add
 
 EXAMPLES
-  $ dialecli plugins:install myplugin
+  $ dialecli plugins:install myplugin 
 
   $ dialecli plugins:install https://github.com/someuser/someplugin
 
@@ -203,7 +228,7 @@ ALIASES
   $ dialecli plugins add
 
 EXAMPLES
-  $ dialecli plugins:install myplugin
+  $ dialecli plugins:install myplugin 
 
   $ dialecli plugins:install https://github.com/someuser/someplugin
 

@@ -1,17 +1,15 @@
 import { Args, Command, Flags } from '@oclif/core'
 
-export default class Compile extends Command {
-  static description = 'Compile Markdown (.md) source'
+export default class Dev extends Command {
+  static description = 'Starts Dev Server'
 
   static examples = [
-    '$ dialecli compile ./hello/hello.md --id Hello',
+    '$ dialectik dev ./hello/hello.md --id Hello',
   ]
 
   static flags = {
     id: Flags.string({char: 'i', description: 'Source identifier', required: false}),
     style: Flags.string({char: 's', description: 'CSS style source', required: false}),
-    inlinestyle: Flags.boolean({ char: 'c', description: 'Inline style (see style flag)', required: false  }),
-    inlinejs: Flags.boolean({ char: 'j', description: 'Inline js', required: false  }),
   }
 
   static args = {
@@ -19,7 +17,7 @@ export default class Compile extends Command {
   }
 
   async run(): Promise<void> {
-    const {args, flags} = await this.parse(Compile)
+    const {args, flags} = await this.parse(Dev)
     this.log(`Compile ${args.source}`)
     this.log(process.cwd())
     if (flags.id) {
@@ -28,14 +26,6 @@ export default class Compile extends Command {
 
     if (flags.style) {
       this.log(`Style: ${flags.style}`)
-    }
-
-    this.log(`Inline Js: ${flags.inlinejs}`)
-
-    if (flags.style === undefined && flags.inlinestyle) {
-      this.warn('Flag "inlinestyle" ignored because flag style not set')
-    } else {
-      this.log(`Inline Style: ${flags.inlinestyle}`)
     }
 
     try {
@@ -50,11 +40,11 @@ export default class Compile extends Command {
         prismStyle: undefined,
         externalStyle: false,
         static: false,
-        inlineCss: flags.inlinestyle,
+        inlineCss: false,
         inlineImage: false,
-        inlineJs: flags.inlinejs,
+        inlineJs: false,
       }
-      compiler.compile(task, process.cwd())
+      compiler.start(task, process.cwd())
     } catch (error) {
       console.error('Error importing compiler module:', error)
     }
