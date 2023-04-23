@@ -1,6 +1,6 @@
 {
   "name": "@dialectik/cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dialectik CLI",
   "author": "benoit.rognier@edukera.com",
   "type": "module",
@@ -26,7 +26,7 @@
     "@oclif/plugin-plugins": "^2.4.6"
   },
   "devDependencies": {
-    "@dialectik/compiler": "^0.0.8",
+    "@dialectik/compiler": "^0.0.9",
     "@oclif/test": "^2.3.16",
     "@types/chai": "^4",
     "@types/mocha": "^9.0.0",

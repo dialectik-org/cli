@@ -31,8 +31,7 @@ export default class Dev extends Command {
     try {
       const compiler = await import('@dialectik/compiler')
       const task : any = {
-        id: flags.id ?? 'Dialectik Content',
-        contentDirSuffix: '',
+        id: flags.id,
         targetType: 'HTML',
         sources: [args.source],
         styles: flags.style ? [flags.style] : [],
@@ -43,6 +42,7 @@ export default class Dev extends Command {
         inlineCss: false,
         inlineImage: false,
         inlineJs: false,
+        license: false,
       }
       compiler.start(task, process.cwd())
     } catch (error) {
