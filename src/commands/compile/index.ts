@@ -12,9 +12,10 @@ export default class Compile extends Command {
     style: Flags.string({char: 's', description: 'CSS style source', required: false}),
     target: Flags.string({char: 't', description: 'Target directory', required: false}),
     nobundlestyle: Flags.boolean({ char: 'c', description: 'Do not bundle style (see style flag)', required: false  }),
-    nobundlejs: Flags.boolean({ char: 'j', description: 'Do not bundle js', required: false  }),
-    nobundleimage: Flags.boolean({ char: 'p', description: 'Do not bundle Image', required: false  }),
-    license: Flags.boolean({ char: 'l', description: 'Generate webpack license', required: false  }),
+    nobundlejs: Flags.boolean({char: 'j', description: 'Do not bundle js', required: false}),
+    nobundleimage: Flags.boolean({char: 'p', description: 'Do not bundle Image', required: false}),
+    license: Flags.boolean({char: 'l', description: 'Generate webpack license', required: false}),
+    temporary: Flags.string({char: 'm', description: 'Specify react project temporary directory', required: false}),
   }
 
   static args = {
@@ -60,6 +61,7 @@ export default class Compile extends Command {
         inlineImage: !flags.nobundleimage,
         inlineJs: !flags.nobundlejs,
         license: flags.license,
+        tmpDir: flags.temporary,
       }
       compiler.compile(task, process.cwd())
     } catch (error) {
