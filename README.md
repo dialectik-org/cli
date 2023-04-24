@@ -22,7 +22,7 @@ $ npm install -g @dialectik/cli
 $ dialectik COMMAND
 running command...
 $ dialectik (--version)
-@dialectik/cli/0.0.3 darwin-arm64 node-v18.12.1
+@dialectik/cli/0.0.4 darwin-arm64 node-v18.12.1
 $ dialectik --help [COMMAND]
 USAGE
   $ dialectik COMMAND
@@ -60,7 +60,7 @@ EXAMPLES
   $ dialectik check version
 ```
 
-_See code: [dist/commands/check.ts](https://github.com/dialectik-org/cli/blob/v0.0.3/dist/commands/check.ts)_
+_See code: [dist/commands/check.ts](https://github.com/dialectik-org/cli/blob/v0.0.4/dist/commands/check.ts)_
 
 ## `dialectik compile SOURCE`
 
@@ -90,7 +90,7 @@ EXAMPLES
   $ dialectik compile ./hello/hello.md --id Hello
 ```
 
-_See code: [dist/commands/compile.ts](https://github.com/dialectik-org/cli/blob/v0.0.3/dist/commands/compile.ts)_
+_See code: [dist/commands/compile.ts](https://github.com/dialectik-org/cli/blob/v0.0.4/dist/commands/compile.ts)_
 
 ## `dialectik dev SOURCE`
 
@@ -114,7 +114,7 @@ EXAMPLES
   $ dialectik dev ./hello/hello.md --id Hello
 ```
 
-_See code: [dist/commands/dev.ts](https://github.com/dialectik-org/cli/blob/v0.0.3/dist/commands/dev.ts)_
+_See code: [dist/commands/dev.ts](https://github.com/dialectik-org/cli/blob/v0.0.4/dist/commands/dev.ts)_
 
 ## `dialectik help [COMMANDS]`
 
