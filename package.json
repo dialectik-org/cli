@@ -1,11 +1,11 @@
 {
   "name": "@dialectik/cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dialectik CLI",
   "author": "benoit.rognier@edukera.com",
   "type": "module",
   "bin": {
-    "dialecli": "./bin/run.cjs"
+    "dialectik": "./bin/run.cjs"
   },
   "publishConfig": {
     "access": "public"
@@ -21,16 +21,20 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
+    "@dialectik/compiler": "^0.0.9",
     "@oclif/core": "^2",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.4.6",
-    "@dialectik/compiler": "^0.0.9"
+    "axios": "^1.3.6",
+    "semver": "^7.5.0"
   },
   "devDependencies": {
     "@oclif/test": "^2.3.16",
+    "@types/axios": "^0.14.0",
     "@types/chai": "^4",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.18.23",
+    "@types/semver": "^7.3.13",
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
@@ -43,22 +47,17 @@
     "typescript": "^4.9.5"
   },
   "oclif": {
-    "bin": "dialecli",
-    "dirname": "dialectik-cli",
+    "bin": "dialectik",
+    "dirname": "./src/commands",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins"
     ],
-    "topicSeparator": " ",
-    "topics": {
-      "compile": {
-        "description": "Compile Markdown (*.md) source to html"
-      },
-      "dev": {
-        "description": "Starts Development Server"
-      }
-    }
+    "hooks": {
+      "postrun": "./dist/hooks/check-for-update"
+    },
+    "topicSeparator": " "
   },
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",

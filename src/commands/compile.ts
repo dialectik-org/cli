@@ -25,7 +25,6 @@ export default class Compile extends Command {
   async run(): Promise<void> {
     const {args, flags} = await this.parse(Compile)
     this.log(`Compile ${args.source}`)
-    this.log(process.cwd())
     if (flags.id) {
       this.log(`Id: ${flags.id}`)
     }

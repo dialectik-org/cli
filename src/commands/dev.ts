@@ -1,7 +1,7 @@
 import { Args, Command, Flags } from '@oclif/core'
 
 export default class Dev extends Command {
-  static description = 'Starts Dev Server'
+  static description = 'Start Dev Server'
 
   static examples = [
     '$ dialectik dev ./hello/hello.md --id Hello',
@@ -19,7 +19,6 @@ export default class Dev extends Command {
   async run(): Promise<void> {
     const {args, flags} = await this.parse(Dev)
     this.log(`Compile ${args.source}`)
-    this.log(process.cwd())
     if (flags.id) {
       this.log(`Id: ${flags.id}`)
     }

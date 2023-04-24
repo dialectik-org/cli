@@ -22,7 +22,7 @@ $ npm install -g @dialectik/cli
 $ dialecli COMMAND
 running command...
 $ dialecli (--version)
-@dialectik/cli/0.0.2 darwin-arm64 node-v18.12.1
+@dialectik/cli/0.0.3 darwin-arm64 node-v18.12.1
 $ dialecli --help [COMMAND]
 USAGE
   $ dialecli COMMAND
@@ -72,7 +72,7 @@ EXAMPLES
   $ dialecli compile ./hello/hello.md --id Hello
 ```
 
-_See code: [dist/commands/compile/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.2/dist/commands/compile/index.ts)_
+_See code: [dist/commands/compile/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.3/dist/commands/compile/index.ts)_
 
 ## `dialecli dev SOURCE`
 
@@ -96,7 +96,7 @@ EXAMPLES
   $ dialectik dev ./hello/hello.md --id Hello
 ```
 
-_See code: [dist/commands/dev/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.2/dist/commands/dev/index.ts)_
+_See code: [dist/commands/dev/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.3/dist/commands/dev/index.ts)_
 
 ## `dialecli help [COMMANDS]`
 

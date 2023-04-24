@@ -4,6 +4,7 @@
     "oclif-typescript"
   ],
   "rules": {
-    "object-curly-spacing": "off"
+    "object-curly-spacing": "off",
+    "node/no-missing-import": "off"
   }
 }
