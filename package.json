@@ -23,10 +23,10 @@
   "dependencies": {
     "@oclif/core": "^2",
     "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^2.4.6"
+    "@oclif/plugin-plugins": "^2.4.6",
+    "@dialectik/compiler": "^0.0.9"
   },
   "devDependencies": {
-    "@dialectik/compiler": "^0.0.9",
     "@oclif/test": "^2.3.16",
     "@types/chai": "^4",
     "@types/mocha": "^9.0.0",

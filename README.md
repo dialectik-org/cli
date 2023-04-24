@@ -22,7 +22,7 @@ $ npm install -g @dialectik/cli
 $ dialecli COMMAND
 running command...
 $ dialecli (--version)
-@dialectik/cli/0.0.1 darwin-arm64 node-v18.12.1
+@dialectik/cli/0.0.2 darwin-arm64 node-v18.12.1
 $ dialecli --help [COMMAND]
 USAGE
   $ dialecli COMMAND
@@ -50,16 +50,20 @@ Compile Markdown (.md) source
 
 ```
 USAGE
-  $ dialecli compile SOURCE [-i <value>] [-s <value>] [-c] [-j]
+  $ dialecli compile SOURCE [-i <value>] [-s <value>] [-t <value>] [-c] [-j] [-p] [-l] [-m <value>]
 
 ARGUMENTS
   SOURCE  Markdown source to compile
 
 FLAGS
-  -c, --inlinestyle    Inline style (see style flag)
-  -i, --id=<value>     Source identifier
-  -j, --inlinejs       Inline js
-  -s, --style=<value>  CSS style source
+  -c, --nobundlestyle      Do not bundle style (see style flag)
+  -i, --id=<value>         Source identifier
+  -j, --nobundlejs         Do not bundle js
+  -l, --license            Generate webpack license
+  -m, --temporary=<value>  Specify react project temporary directory
+  -p, --nobundleimage      Do not bundle Image
+  -s, --style=<value>      CSS style source
+  -t, --target=<value>     Target directory
 
 DESCRIPTION
   Compile Markdown (.md) source
@@ -68,7 +72,7 @@ EXAMPLES
   $ dialecli compile ./hello/hello.md --id Hello
 ```
 
-_See code: [dist/commands/compile/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.1/dist/commands/compile/index.ts)_
+_See code: [dist/commands/compile/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.2/dist/commands/compile/index.ts)_
 
 ## `dialecli dev SOURCE`
 
@@ -92,7 +96,7 @@ EXAMPLES
   $ dialectik dev ./hello/hello.md --id Hello
 ```
 
-_See code: [dist/commands/dev/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.1/dist/commands/dev/index.ts)_
+_See code: [dist/commands/dev/index.ts](https://github.com/dialectik-org/cli/blob/v0.0.2/dist/commands/dev/index.ts)_
 
 ## `dialecli help [COMMANDS]`
 
