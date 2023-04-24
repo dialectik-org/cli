@@ -4,7 +4,7 @@ export default class Compile extends Command {
   static description = 'Compile Markdown (.md) source'
 
   static examples = [
-    '$ dialecli compile ./hello/hello.md --id Hello',
+    '$ dialectik compile ./hello/hello.md --id Hello',
   ]
 
   static flags = {
