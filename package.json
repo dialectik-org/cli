@@ -50,6 +50,11 @@
     "bin": "dialectik",
     "dirname": "./src/commands",
     "commands": "./dist/commands",
+    "topics": {
+      "compile": {
+        "description": "Compile files into different formats"
+      }
+    },
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins"

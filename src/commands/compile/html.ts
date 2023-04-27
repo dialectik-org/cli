@@ -1,11 +1,13 @@
 import { Args, Command, Flags } from '@oclif/core'
 
-export default class Compile extends Command {
-  static description = 'Compile Markdown (.md) source'
+export default class HTML extends Command {
+  static description = 'Compile Markdown (.md) source to html.'
 
   static examples = [
-    '$ dialectik compile ./hello/hello.md --id Hello',
+    '$ dialectik compile to html ./hello/hello.md --id Hello',
   ]
+
+  static aliases = ['compile:to:html'];
 
   static flags = {
     id: Flags.string({char: 'i', description: 'Source identifier', required: false}),
@@ -23,7 +25,7 @@ export default class Compile extends Command {
   }
 
   async run(): Promise<void> {
-    const {args, flags} = await this.parse(Compile)
+    const {args, flags} = await this.parse(HTML)
     this.log(`Compile ${args.source}`)
     if (flags.id) {
       this.log(`Id: ${flags.id}`)
