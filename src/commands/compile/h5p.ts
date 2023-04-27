@@ -43,9 +43,9 @@ export default class H5P extends Command {
         prismStyle: undefined,
         externalStyle: false,
         static: false,
-        inlineCss: undefined,
-        inlineImage: undefined,
-        inlineJs: undefined,
+        inlineCss: true,
+        inlineImage: true,
+        inlineJs: true,
         license: flags.license,
         tmpDir: flags.temporary,
       }
