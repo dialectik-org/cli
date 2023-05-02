@@ -14,6 +14,7 @@ export default class H5P extends Command {
     style: Flags.string({char: 's', description: 'CSS style source', required: false}),
     target: Flags.string({char: 't', description: 'Target directory', required: false}),
     temporary: Flags.string({char: 'm', description: 'Specify react project temporary directory', required: false}),
+    modules: Flags.string({char: 'd', description: 'Modules directory', required: false}),
   }
 
   static args = {
@@ -29,6 +30,10 @@ export default class H5P extends Command {
 
     if (flags.style) {
       this.log(`Style: ${flags.style}`)
+    }
+
+    if (flags.modules) {
+      this.log(`Modules: ${flags.modules}`)
     }
 
     try {
@@ -49,7 +54,7 @@ export default class H5P extends Command {
         license: flags.license,
         tmpDir: flags.temporary,
       }
-      compiler.compile(task, process.cwd())
+      compiler.compile(task, process.cwd(), flags.modules)
     } catch (error) {
       console.error('Error importing compiler module:', error)
     }

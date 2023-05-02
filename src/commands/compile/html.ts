@@ -17,7 +17,8 @@ export default class HTML extends Command {
     nobundlejs: Flags.boolean({char: 'j', description: 'Do not bundle js', required: false}),
     nobundleimage: Flags.boolean({char: 'p', description: 'Do not bundle Image', required: false}),
     license: Flags.boolean({char: 'l', description: 'Generate webpack license', required: false}),
-    temporary: Flags.string({char: 'm', description: 'Specify react project temporary directory', required: false}),
+    temporary: Flags.string({char: 'm', description: 'React project temporary directory', required: false}),
+    modules: Flags.string({char: 'd', description: 'Modules directory', required: false}),
   }
 
   static args = {
@@ -46,6 +47,10 @@ export default class HTML extends Command {
     this.log(`Do not bundle Image: ${flags.nobundleimage}`)
     this.log(`License: ${flags.license ?? false}`)
 
+    if (flags.modules) {
+      this.log(`Modules: ${flags.modules}`)
+    }
+
     try {
       const compiler = await import('@dialectik/compiler')
       const task : any = {
@@ -64,7 +69,7 @@ export default class HTML extends Command {
         license: flags.license,
         tmpDir: flags.temporary,
       }
-      compiler.compile(task, process.cwd())
+      await compiler.compile(task, process.cwd(), flags.modules)
     } catch (error) {
       console.error('Error importing compiler module:', error)
     }
