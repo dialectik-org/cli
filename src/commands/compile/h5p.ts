@@ -11,10 +11,7 @@ export default class H5P extends Command {
 
   static flags = {
     id: Flags.string({char: 'i', description: 'Source identifier', required: false}),
-    style: Flags.string({char: 's', description: 'CSS style source', required: false}),
     target: Flags.string({char: 't', description: 'Target directory', required: false}),
-    temporary: Flags.string({char: 'm', description: 'Specify react project temporary directory', required: false}),
-    modules: Flags.string({char: 'd', description: 'Modules directory', required: false}),
   }
 
   static args = {
@@ -23,6 +20,7 @@ export default class H5P extends Command {
 
   async run(): Promise<void> {
     const {args, flags} = await this.parse(H5P)
+    /*
     this.log(`Compile ${args.source}`)
     if (flags.id) {
       this.log(`Id: ${flags.id}`)
@@ -35,6 +33,7 @@ export default class H5P extends Command {
     if (flags.modules) {
       this.log(`Modules: ${flags.modules}`)
     }
+    */
 
     try {
       const compiler = await import('@dialectik/compiler')
@@ -43,7 +42,7 @@ export default class H5P extends Command {
         targetType: 'H5P',
         targetDir: flags.target,
         sources: [args.source],
-        styles: flags.style ? [flags.style] : [],
+        styles: [],
         components: 'Default',
         prismStyle: undefined,
         externalStyle: false,
@@ -52,9 +51,8 @@ export default class H5P extends Command {
         inlineImage: true,
         inlineJs: true,
         license: flags.license,
-        tmpDir: flags.temporary,
       }
-      compiler.compile(task, process.cwd(), flags.modules)
+      compiler.compile(task, process.cwd())
     } catch (error) {
       console.error('Error importing compiler module:', error)
     }

@@ -11,14 +11,11 @@ export default class HTML extends Command {
 
   static flags = {
     id: Flags.string({char: 'i', description: 'Source identifier', required: false}),
-    style: Flags.string({char: 's', description: 'CSS style source', required: false}),
     target: Flags.string({char: 't', description: 'Target directory', required: false}),
     nobundlestyle: Flags.boolean({ char: 'c', description: 'Do not bundle style (see style flag)', required: false  }),
     nobundlejs: Flags.boolean({char: 'j', description: 'Do not bundle js', required: false}),
     nobundleimage: Flags.boolean({char: 'p', description: 'Do not bundle Image', required: false}),
     license: Flags.boolean({char: 'l', description: 'Generate webpack license', required: false}),
-    temporary: Flags.string({char: 'm', description: 'React project temporary directory', required: false}),
-    modules: Flags.string({char: 'd', description: 'Modules directory', required: false}),
   }
 
   static args = {
@@ -27,6 +24,7 @@ export default class HTML extends Command {
 
   async run(): Promise<void> {
     const {args, flags} = await this.parse(HTML)
+    /*
     this.log(`Compile ${args.source}`)
     if (flags.id) {
       this.log(`Id: ${flags.id}`)
@@ -50,6 +48,7 @@ export default class HTML extends Command {
     if (flags.modules) {
       this.log(`Modules: ${flags.modules}`)
     }
+    */
 
     try {
       const compiler = await import('@dialectik/compiler')
@@ -58,7 +57,7 @@ export default class HTML extends Command {
         targetType: 'HTML',
         targetDir: flags.target,
         sources: [args.source],
-        styles: flags.style ? [flags.style] : [],
+        styles: [],
         components: 'Default',
         prismStyle: undefined,
         externalStyle: false,
@@ -67,9 +66,8 @@ export default class HTML extends Command {
         inlineImage: !flags.nobundleimage,
         inlineJs: !flags.nobundlejs,
         license: flags.license,
-        tmpDir: flags.temporary,
       }
-      await compiler.compile(task, process.cwd(), flags.modules)
+      await compiler.compile(task, process.cwd())
     } catch (error) {
       console.error('Error importing compiler module:', error)
     }
